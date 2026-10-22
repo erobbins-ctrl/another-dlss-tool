@@ -27,7 +27,12 @@ VIAddVersionKey "LegalCopyright" "Front end for the open-source DLSS5-Feeder pro
 !define MUI_ABORTWARNING
 !define MUI_WELCOMEFINISHPAGE_BITMAP "stage\welcome.bmp"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "stage\welcome.bmp"
+; Build with -DBUNDLE_DLLS to include the NVIDIA files from stage\files (for your own use only; don't publish that build).
+!ifdef BUNDLE_DLLS
 !define MUI_WELCOMEPAGE_TEXT "This installs ${APPNAME}, an app that adds DLSS 5 neural rendering to Direct3D 9, 11 and 12 games using the official DLSS5-Feeder project.$\r$\n$\r$\nIt includes nvngx_dlss.dll (NVIDIA-signed) and the community RTX 40 build of nvngx_dlssnr.dll, which is not signed by NVIDIA.$\r$\n$\r$\nNothing in any game changes until you press Install inside the app."
+!else
+!define MUI_WELCOMEPAGE_TEXT "This installs ${APPNAME}, an app that adds DLSS 5 neural rendering to Direct3D 9, 11 and 12 games using the official DLSS5-Feeder project.$\r$\n$\r$\nNVIDIA's DLSS files are not included. The first time you open the app, click NVIDIA files at the bottom left and point it at nvngx_dlss.dll and nvngx_dlssnr.dll.$\r$\n$\r$\nNothing in any game changes until you press Install inside the app."
+!endif
 !define MUI_FINISHPAGE_RUN "$INSTDIR\${APPEXE}"
 !define MUI_FINISHPAGE_RUN_TEXT "Open ${APPNAME}"
 !define MUI_FINISHPAGE_SHOWREADME "$INSTDIR\README.txt"
@@ -73,10 +78,12 @@ Section "${APPNAME}" SecApp
   File "stage\${APPEXE}"
   File "stage\README.txt"
   File "stage\app.ico"
+!ifdef BUNDLE_DLLS
   SetOutPath "$INSTDIR\files"
   File "stage\files\nvngx_dlss.dll"
   File "stage\files\nvngx_dlssnr.dll"
-  File "stage\files\SHA256.txt"
+  File /nonfatal "stage\files\SHA256.txt"
+!endif
   SetOutPath "$INSTDIR"
   WriteUninstaller "$INSTDIR\Uninstall.exe"
   CreateShortcut "$SMPROGRAMS\${APPNAME}.lnk" "$INSTDIR\${APPEXE}" "" "$INSTDIR\app.ico"
@@ -95,7 +102,7 @@ Section "Desktop shortcut" SecDesktop
 SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecApp} "The app and the bundled NVIDIA files."
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecApp} "The app."
   !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} "Put a shortcut on the desktop."
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
