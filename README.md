@@ -6,6 +6,10 @@
 
 <p align="center">A Windows app that sets up DLSS 5 neural rendering in Direct3D 9, 11 and 12 games that never shipped with DLSS, and manages shaders and ReShade presets for each game.</p>
 
+<p align="center">
+  <a href="https://ko-fi.com/neurotoxin4u"><img src="https://img.shields.io/badge/Ko--fi-Support%20this%20project-FF5E5B?logo=ko-fi&logoColor=white" alt="Support on Ko-fi"></a>
+</p>
+
 ---
 
 ## What it does
@@ -117,6 +121,12 @@ Nexus Mods' public GraphQL schema, published in [NexusMods.App](https://github.c
 Built with [Mono](https://www.mono-project.com) and [NSIS](https://nsis.sourceforge.io). The logo was drawn for this project with [Pillow](https://python-pillow.org) (`logo/make_logo.py`).
 
 **If you publish builds:** don't attach an installer that contains NVIDIA's DLLs to a GitHub release. Build the release without them and let people add their own.
+
+## Support
+
+Another DLSS Tool is free. If it saved you some time, you can [leave a tip on Ko-fi](https://ko-fi.com/neurotoxin4u). Tips are entirely optional and don't unlock anything.
+
+It also stands on other people's work. If it helped, consider supporting them too: [DLSS5-Feeder](https://github.com/jlrouzies-fr/DLSS5-Feeder), [ReShade](https://reshade.me), and the authors of the shaders and presets you use.
 
 ## Licence
 
