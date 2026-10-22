@@ -47,9 +47,11 @@ Presets (Nexus Mods)
   link to install any preset, or install one from a file or folder you downloaded.
 
 NVIDIA files
-  Click NVIDIA files at the bottom left to see or change them. The bundled files in the files folder are used unless you pick others.
-  nvngx_dlssnr.dll is the community RTX 40 build and is not signed by NVIDIA. Use
-  Copy hash and compare it with the one posted in the RenoDX Discord.
+  NVIDIA's DLSS files aren't included in the public download. Click NVIDIA files at
+  the bottom left and pick nvngx_dlss.dll and nvngx_dlssnr.dll (or the archives they
+  came in). On RTX 20, 30 and 40 cards the neural pass needs the community build of
+  nvngx_dlssnr.dll, which isn't signed by NVIDIA: use Copy hash and compare it with the
+  one posted in the RenoDX Discord.
 
 Uninstall (in the app) removes everything an install added to a game and restores the
 original files. Uninstalling the app itself does not touch your games, so uninstall
