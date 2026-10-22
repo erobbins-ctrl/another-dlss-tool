@@ -79,7 +79,7 @@ The app is plain C# WinForms targeting .NET Framework 4.5, with no NuGet package
 ./build.sh
 ```
 
-`build.sh` compiles `out/AnotherDLSSTool.exe` with Mono's `mcs`. If both NVIDIA files are in `stage/files`, it also builds `out/Another-DLSS-Tool-Installer.exe` with NSIS. `logo/make_logo.py` regenerates the logo and icon.
+`build.sh` compiles `out/AnotherDLSSTool.exe` with Mono's `mcs`, then builds `out/Another-DLSS-Tool-Installer.exe` with NSIS. The installer leaves NVIDIA's files out; `./build.sh --bundle-dlls` includes them from `stage/files` for your own use only. `logo/make_logo.py` regenerates the logo and icon.
 
 | File | What's in it |
 | --- | --- |
